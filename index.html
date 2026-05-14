@@ -37,7 +37,6 @@
             overflow-x: hidden;
         }
 
-        /* ===== SCROLLBAR ===== */
         ::-webkit-scrollbar {
             width: 8px;
         }
@@ -49,7 +48,6 @@
             border-radius: 4px;
         }
 
-        /* ===== NAVIGATION ===== */
         nav {
             position: fixed;
             top: 0;
@@ -173,7 +171,6 @@
             color: var(--midnight);
         }
 
-        /* ===== HERO ===== */
         .hero {
             min-height: 100vh;
             display: flex;
@@ -391,7 +388,6 @@
             font-size: 12px;
         }
 
-        /* ===== SECTIONS GENERAL ===== */
         section {
             padding: 100px 24px;
         }
@@ -432,7 +428,6 @@
             line-height: 1.7;
         }
 
-        /* ===== WHY US ===== */
         .why-us {
             background: var(--white);
         }
@@ -483,7 +478,6 @@
             line-height: 1.6;
         }
 
-        /* ===== SERVICES ===== */
         .services {
             background: linear-gradient(180deg, var(--cream) 0%, var(--white) 100%);
         }
@@ -589,7 +583,6 @@
             color: var(--gold);
         }
 
-        /* ===== PRICING ===== */
         .pricing {
             background: var(--midnight);
             position: relative;
@@ -741,7 +734,6 @@
             color: var(--gold);
         }
 
-        /* ===== TESTIMONIALS ===== */
         .testimonials {
             background: var(--white);
         }
@@ -823,7 +815,6 @@
             color: var(--gold);
         }
 
-        /* ===== CTA ===== */
         .cta {
             background: linear-gradient(135deg, var(--ocean), var(--midnight));
             text-align: center;
@@ -920,7 +911,6 @@
             margin: 0;
         }
 
-        /* ===== FOOTER ===== */
         footer {
             background: var(--midnight);
             padding: 80px 24px 40px;
@@ -983,17 +973,17 @@
             font-size: 14px;
         }
 
-        /* ===== MODAL ===== */
+        /* ===== FIXED SMALL MODAL ===== */
         .modal-overlay {
             position: fixed;
             inset: 0;
-            background: rgba(0, 0, 0, 0.8);
-            backdrop-filter: blur(10px);
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(8px);
             z-index: 9999;
             display: none;
             align-items: center;
             justify-content: center;
-            padding: 20px;
+            padding: 16px;
         }
 
         .modal-overlay.active {
@@ -1002,34 +992,37 @@
 
         .modal {
             background: var(--white);
-            border-radius: 24px;
-            padding: 48px;
-            max-width: 500px;
+            border-radius: 20px;
+            padding: 24px;
+            max-width: 400px;
             width: 100%;
+            max-height: 85vh;
+            overflow-y: auto;
             position: relative;
-            animation: modalIn 0.4s ease;
+            animation: modalIn 0.3s ease;
         }
 
         @keyframes modalIn {
-            from { opacity: 0; transform: scale(0.9) translateY(20px); }
-            to { opacity: 1; transform: scale(1) translateY(0); }
+            from { opacity: 0; transform: scale(0.95); }
+            to { opacity: 1; transform: scale(1); }
         }
 
         .modal-close {
             position: absolute;
-            top: 20px;
-            right: 20px;
-            width: 40px;
-            height: 40px;
+            top: 12px;
+            right: 12px;
+            width: 36px;
+            height: 36px;
             border-radius: 50%;
             border: none;
             background: var(--cream);
             cursor: pointer;
-            font-size: 18px;
+            font-size: 16px;
             display: flex;
             align-items: center;
             justify-content: center;
             transition: all 0.3s;
+            z-index: 10;
         }
 
         .modal-close:hover {
@@ -1039,47 +1032,46 @@
 
         .modal h3 {
             font-family: 'Playfair Display', serif;
-            font-size: 32px;
+            font-size: 22px;
             color: var(--midnight);
-            margin-bottom: 8px;
+            margin-bottom: 4px;
+            padding-right: 40px;
         }
 
         .modal-subtitle {
             color: var(--warm-gray);
-            margin-bottom: 32px;
-            font-size: 15px;
+            margin-bottom: 16px;
+            font-size: 13px;
         }
 
         .form-group {
-            margin-bottom: 20px;
+            margin-bottom: 12px;
         }
 
         .form-group label {
             display: block;
-            font-size: 13px;
+            font-size: 11px;
             font-weight: 600;
             color: var(--midnight);
-            margin-bottom: 8px;
+            margin-bottom: 5px;
             text-transform: uppercase;
             letter-spacing: 0.5px;
         }
 
         .form-group input,
-        .form-group select,
-        .form-group textarea {
+        .form-group select {
             width: 100%;
-            padding: 14px 18px;
+            padding: 10px 12px;
             border: 1.5px solid #e5e7eb;
-            border-radius: 14px;
-            font-size: 15px;
+            border-radius: 10px;
+            font-size: 14px;
             font-family: 'DM Sans', sans-serif;
             transition: all 0.3s;
             background: var(--cream);
         }
 
         .form-group input:focus,
-        .form-group select:focus,
-        .form-group textarea:focus {
+        .form-group select:focus {
             outline: none;
             border-color: var(--gold);
             background: var(--white);
@@ -1088,21 +1080,21 @@
         .form-row {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 16px;
+            gap: 10px;
         }
 
         .modal-submit {
             width: 100%;
-            padding: 16px;
+            padding: 12px;
             background: var(--midnight);
             color: var(--gold);
             border: none;
-            border-radius: 14px;
-            font-size: 16px;
+            border-radius: 12px;
+            font-size: 15px;
             font-weight: 700;
             cursor: pointer;
             transition: all 0.3s;
-            margin-top: 10px;
+            margin-top: 4px;
         }
 
         .modal-submit:hover {
@@ -1110,7 +1102,35 @@
             color: var(--midnight);
         }
 
-        /* ===== MOBILE ===== */
+        /* Mobile modal */
+        @media (max-width: 768px) {
+            .modal-overlay {
+                padding: 0;
+                align-items: flex-end;
+            }
+
+            .modal {
+                max-width: 100%;
+                border-radius: 20px 20px 0 0;
+                max-height: 80vh;
+                padding: 20px;
+                animation: slideUp 0.3s ease;
+            }
+
+            @keyframes slideUp {
+                from { transform: translateY(100%); }
+                to { transform: translateY(0); }
+            }
+
+            .modal h3 {
+                font-size: 20px;
+            }
+
+            .form-row {
+                gap: 8px;
+            }
+        }
+
         @media (max-width: 1024px) {
             .hero-content {
                 grid-template-columns: 1fr;
@@ -1192,17 +1212,8 @@
             .cta-phone {
                 font-size: 28px;
             }
-
-            .form-row {
-                grid-template-columns: 1fr;
-            }
-
-            .modal {
-                padding: 32px 24px;
-            }
         }
 
-        /* ===== ANIMATIONS ===== */
         .fade-up {
             opacity: 0;
             transform: translateY(40px);
@@ -1221,10 +1232,10 @@
         .stagger-5 { transition-delay: 0.5s; }
         .stagger-6 { transition-delay: 0.6s; }
     </style>
+<base target="_blank">
 </head>
 <body>
 
-    <!-- Navigation -->
     <nav id="navbar">
         <div class="nav-inner">
             <a href="#" class="logo">
@@ -1242,7 +1253,6 @@
         </div>
     </nav>
 
-    <!-- Hero -->
     <section class="hero">
         <div class="hero-bg"></div>
         <div class="hero-content">
@@ -1254,12 +1264,8 @@
                 <h1>Where Your Car <em>Comes First</em></h1>
                 <p class="hero-subtitle">Family-owned auto detailing in Petersburg, VA. We treat every vehicle like it's our own — because your ride deserves respect.</p>
                 <div class="hero-buttons">
-                    <a href="tel:+18047337222" class="btn-primary">
-                        Call (804) 733-7222
-                    </a>
-                    <a href="#services" class="btn-secondary">
-                        See Our Work ↓
-                    </a>
+                    <a href="tel:+18047337222" class="btn-primary">Call (804) 733-7222</a>
+                    <a href="#services" class="btn-secondary">See Our Work ↓</a>
                 </div>
                 <div class="hero-stats">
                     <div class="hero-stat">
@@ -1289,7 +1295,6 @@
         </div>
     </section>
 
-    <!-- Why Us -->
     <section class="why-us">
         <div class="section-inner">
             <span class="section-label">Why Choose Us</span>
@@ -1321,7 +1326,6 @@
         </div>
     </section>
 
-    <!-- Services -->
     <section id="services" class="services">
         <div class="section-inner">
             <div class="services-header">
@@ -1431,7 +1435,6 @@
         </div>
     </section>
 
-    <!-- Pricing -->
     <section id="pricing" class="pricing">
         <div class="section-inner">
             <span class="section-label">Pricing</span>
@@ -1484,7 +1487,6 @@
         </div>
     </section>
 
-    <!-- Testimonials -->
     <section id="reviews" class="testimonials">
         <div class="section-inner">
             <span class="section-label">Testimonials</span>
@@ -1533,7 +1535,6 @@
         </div>
     </section>
 
-    <!-- CTA -->
     <section id="contact" class="cta">
         <div class="cta-content">
             <span class="section-label" style="color: var(--gold-light);">Ready to Book?</span>
@@ -1566,7 +1567,6 @@
         </div>
     </section>
 
-    <!-- Footer -->
     <footer>
         <div class="footer-inner">
             <div class="footer-grid">
@@ -1605,71 +1605,60 @@
         </div>
     </footer>
 
-    <!-- Booking Modal -->
+    <!-- SMALL FIXED MODAL -->
     <div class="modal-overlay" id="bookingModal" onclick="closeModalOutside(event)">
         <div class="modal" onclick="event.stopPropagation()">
             <button class="modal-close" onclick="closeModal()">✕</button>
             <h3>Book Your Detail</h3>
-            <p class="modal-subtitle">We'll call you within 2 hours to confirm your appointment.</p>
+            <p class="modal-subtitle">We'll call you within 2 hours to confirm.</p>
 
             <form onsubmit="handleSubmit(event)">
                 <div class="form-row">
                     <div class="form-group">
-                        <label>First Name</label>
-                        <input type="text" placeholder="John" required>
+                        <label>Name</label>
+                        <input type="text" placeholder="John Doe" required>
                     </div>
                     <div class="form-group">
-                        <label>Last Name</label>
-                        <input type="text" placeholder="Doe" required>
+                        <label>Phone</label>
+                        <input type="tel" placeholder="(804) 733-7222" required>
                     </div>
-                </div>
-
-                <div class="form-group">
-                    <label>Phone Number</label>
-                    <input type="tel" placeholder="(804) 733-7222" required>
                 </div>
 
                 <div class="form-group">
                     <label>Service</label>
                     <select required>
-                        <option value="">Choose a service...</option>
-                        <option value="ultimate">The Ultimate Finish ($299)</option>
+                        <option value="">Choose...</option>
+                        <option value="ultimate">Ultimate Finish ($299)</option>
                         <option value="interior">Interior Revival ($149)</option>
                         <option value="exterior">Exterior Polish ($89)</option>
                         <option value="mobile">Mobile Concierge ($199)</option>
                         <option value="van">Van & SUV Detail ($179)</option>
-                        <option value="maintenance">Maintenance Plan ($49)</option>
+                        <option value="maintenance">Maintenance ($49)</option>
                     </select>
                 </div>
 
                 <div class="form-row">
                     <div class="form-group">
-                        <label>Preferred Date</label>
+                        <label>Date</label>
                         <input type="date" required>
                     </div>
                     <div class="form-group">
-                        <label>Vehicle Type</label>
+                        <label>Vehicle</label>
                         <select>
                             <option>Sedan</option>
                             <option>SUV / Truck</option>
                             <option>Van</option>
-                            <option>Luxury / Exotic</option>
+                            <option>Luxury</option>
                         </select>
                     </div>
                 </div>
 
-                <div class="form-group">
-                    <label>Special Requests</label>
-                    <textarea rows="3" placeholder="Any specific concerns or requests..."></textarea>
-                </div>
-
-                <button type="submit" class="modal-submit">Confirm Booking Request</button>
+                <button type="submit" class="modal-submit">Confirm Booking</button>
             </form>
         </div>
     </div>
 
     <script>
-        // Navbar scroll effect
         window.addEventListener('scroll', () => {
             const nav = document.getElementById('navbar');
             if (window.scrollY > 50) {
@@ -1679,7 +1668,6 @@
             }
         });
 
-        // Fade up animations on scroll
         const observerOptions = {
             threshold: 0.1,
             rootMargin: '0px 0px -50px 0px'
@@ -1695,7 +1683,6 @@
 
         document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
 
-        // Modal functions
         function openModal() {
             document.getElementById('bookingModal').classList.add('active');
             document.body.style.overflow = 'hidden';
@@ -1722,19 +1709,17 @@
             setTimeout(() => {
                 alert('Thank you! We will call you at (804) 733-7222 within 2 hours to confirm your appointment.');
                 closeModal();
-                btn.textContent = 'Confirm Booking Request';
+                btn.textContent = 'Confirm Booking';
                 btn.style.background = '';
                 btn.style.color = '';
                 e.target.reset();
             }, 800);
         }
 
-        // Close modal on Escape
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape') closeModal();
         });
 
-        // Mobile menu toggle
         function toggleMobile() {
             const nav = document.querySelector('.nav-links');
             nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex';
