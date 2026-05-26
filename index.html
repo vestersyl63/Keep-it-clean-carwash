@@ -149,6 +149,10 @@
             border-radius: 50px;
             font-weight: 600;
             transition: all 0.3s !important;
+            cursor: pointer;
+            border: none;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 14px;
         }
 
         .nav-cta::after {
@@ -295,6 +299,7 @@
             gap: 8px;
             border: 1.5px solid rgba(255, 255, 255, 0.25);
             transition: all 0.3s;
+            cursor: pointer;
         }
 
         .btn-secondary:hover {
@@ -576,6 +581,10 @@
             align-items: center;
             gap: 8px;
             transition: gap 0.3s;
+            cursor: pointer;
+            border: none;
+            background: none;
+            font-family: 'DM Sans', sans-serif;
         }
 
         .service-link:hover {
@@ -1102,7 +1111,6 @@
             color: var(--midnight);
         }
 
-        /* Mobile modal */
         @media (max-width: 768px) {
             .modal-overlay {
                 padding: 0;
@@ -1232,7 +1240,6 @@
         .stagger-5 { transition-delay: 0.5s; }
         .stagger-6 { transition-delay: 0.6s; }
     </style>
-<base target="_blank">
 </head>
 <body>
 
@@ -1247,7 +1254,7 @@
                 <a href="#pricing">Pricing</a>
                 <a href="#reviews">Reviews</a>
                 <a href="#contact">Contact</a>
-                <a href="#" class="nav-cta" onclick="openModal(); return false;">Book Now</a>
+                <button class="nav-cta" onclick="openModal()">Book Now</button>
             </div>
             <button class="mobile-menu-btn" onclick="toggleMobile()">☰</button>
         </div>
@@ -1348,7 +1355,7 @@
                             <li>Interior Deep Clean</li>
                             <li>Leather Rejuvenation</li>
                         </ul>
-                        <a href="#" class="service-link" onclick="openModal(); return false;">Book Now →</a>
+                        <button class="service-link" onclick="openModal()">Book Now →</button>
                     </div>
                 </div>
 
@@ -1364,7 +1371,7 @@
                             <li>Dashboard & Trim Detail</li>
                             <li>Odor Elimination</li>
                         </ul>
-                        <a href="#" class="service-link" onclick="openModal(); return false;">Book Now →</a>
+                        <button class="service-link" onclick="openModal()">Book Now →</button>
                     </div>
                 </div>
 
@@ -1380,7 +1387,7 @@
                             <li>Machine Polish</li>
                             <li>Premium Wax Seal</li>
                         </ul>
-                        <a href="#" class="service-link" onclick="openModal(); return false;">Book Now →</a>
+                        <button class="service-link" onclick="openModal()">Book Now →</button>
                     </div>
                 </div>
 
@@ -1396,7 +1403,7 @@
                             <li>Workplace Friendly</li>
                             <li>Same Quality Guarantee</li>
                         </ul>
-                        <a href="#" class="service-link" onclick="openModal(); return false;">Book Now →</a>
+                        <button class="service-link" onclick="openModal()">Book Now →</button>
                     </div>
                 </div>
 
@@ -1412,7 +1419,7 @@
                             <li>Seat Removal Available</li>
                             <li>Commercial Fleet Rates</li>
                         </ul>
-                        <a href="#" class="service-link" onclick="openModal(); return false;">Book Now →</a>
+                        <button class="service-link" onclick="openModal()">Book Now →</button>
                     </div>
                 </div>
 
@@ -1428,7 +1435,7 @@
                             <li>Glass Cleaning</li>
                             <li>Subscriber Discount</li>
                         </ul>
-                        <a href="#" class="service-link" onclick="openModal(); return false;">Book Now →</a>
+                        <button class="service-link" onclick="openModal()">Book Now →</button>
                     </div>
                 </div>
             </div>
@@ -1544,7 +1551,7 @@
             <a href="tel:+18047337222" class="cta-phone">(804) 733-7222</a>
 
             <div style="margin-top: 20px;">
-                <a href="#" class="btn-primary" onclick="openModal(); return false;" style="background: var(--white); color: var(--midnight);">Book Appointment Online</a>
+                <button class="btn-primary" onclick="openModal()" style="background: var(--white); color: var(--midnight); border: none;">Book Appointment Online</button>
             </div>
 
             <div class="cta-details">
@@ -1702,18 +1709,22 @@
         function handleSubmit(e) {
             e.preventDefault();
             const btn = e.target.querySelector('.modal-submit');
-            btn.textContent = '✓ Request Sent!';
-            btn.style.background = '#22c55e';
-            btn.style.color = '#fff';
+            btn.textContent = 'Sending...';
             
             setTimeout(() => {
-                alert('Thank you! We will call you at (804) 733-7222 within 2 hours to confirm your appointment.');
-                closeModal();
-                btn.textContent = 'Confirm Booking';
-                btn.style.background = '';
-                btn.style.color = '';
-                e.target.reset();
-            }, 800);
+                btn.textContent = '✓ Request Sent!';
+                btn.style.background = '#22c55e';
+                btn.style.color = '#fff';
+                
+                setTimeout(() => {
+                    alert('Thank you! We will call you at (804) 733-7222 within 2 hours to confirm your appointment.');
+                    closeModal();
+                    btn.textContent = 'Confirm Booking';
+                    btn.style.background = '';
+                    btn.style.color = '';
+                    e.target.reset();
+                }, 800);
+            }, 500);
         }
 
         document.addEventListener('keydown', (e) => {
@@ -1722,15 +1733,20 @@
 
         function toggleMobile() {
             const nav = document.querySelector('.nav-links');
-            nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex';
-            nav.style.position = 'absolute';
-            nav.style.top = '70px';
-            nav.style.left = '0';
-            nav.style.right = '0';
-            nav.style.background = '#fff';
-            nav.style.flexDirection = 'column';
-            nav.style.padding = '20px';
-            nav.style.boxShadow = '0 10px 40px rgba(0,0,0,0.1)';
+            if (nav.style.display === 'flex') {
+                nav.style.display = 'none';
+            } else {
+                nav.style.display = 'flex';
+                nav.style.position = 'absolute';
+                nav.style.top = '70px';
+                nav.style.left = '0';
+                nav.style.right = '0';
+                nav.style.background = '#fff';
+                nav.style.flexDirection = 'column';
+                nav.style.padding = '20px';
+                nav.style.boxShadow = '0 10px 40px rgba(0,0,0,0.1)';
+                nav.style.zIndex = '999';
+            }
         }
     </script>
 
